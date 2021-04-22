@@ -1,5 +1,7 @@
 import random, string
 
+f = open("password.txt","a")
+
 print("Für ein starkes Passwort sind mindestens 20 Zeichen empfohlen!")
 while True:
     try:
@@ -27,5 +29,7 @@ while True:
     else:
         print("Y oder N!")
         continue
+pass_name = input("Notiz zum Merken: ")
 password = "".join(random.SystemRandom().choice(uppercase + string.digits + string.ascii_lowercase + punctuation) for i in range(length))
-print(password)
+f.writelines("\n" + pass_name + " : " + password)
+print("Passwort für", pass_name, ":" , password)
